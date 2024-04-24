@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+/* eslint-disable react/jsx-no-undef */
 import './App.css';
+import DashBoard from './components/Dashboard';
+import { AuthContextProvider } from './helpers/AuthContext';
+import store from './store/redux-store';
+import {Provider} from 'react-redux'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthContextProvider>
+        <Provider store={store}>
+           <DashBoard />
+        </Provider>
+      </AuthContextProvider>
     </div>
   );
 }
